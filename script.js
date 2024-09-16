@@ -4,8 +4,8 @@ const loginDiv = document.getElementById('login');
 const terminalDiv = document.getElementById('terminal');
 const loginErrorElement = document.getElementById('login-error');
 
-const validUsername = 'pedro';
-const validPassword = '2803';
+const validUsername = 'admin';
+const validPassword = 'password';
 
 const commandHistory = [];
 let historyIndex = -1;
@@ -37,7 +37,7 @@ function login() {
     if (username === validUsername && password === validPassword) {
         loginDiv.style.display = 'none';
         terminalDiv.style.display = 'block';
-        printToOutput('Login bem-sucedido.\nBem-vindo de volta Sr Pedro Developer.\n', 'success');
+        printToOutput('Login bem-sucedido.\nBem-vindo ao terminal de hacking.\n', 'success');
     } else {
         loginErrorElement.textContent = 'Usuário ou senha inválidos. Tente novamente.';
     }
@@ -71,8 +71,46 @@ function handleCommand(command) {
                 simulateTyping(`Corrigindo problema: "${issue}"...\nDetectando falhas...\nAplicando correções...\nProblema "${issue}" corrigido com sucesso.\n`, 100);
             }
             break;
+        case 'alerta':
+            simulateTyping('ALERTA: Atividade suspeita detectada. Verifique as conexões de rede.\n', 'error');
+            break;
+        case 'logs':
+            simulateTyping('Logs recentes:\n\n[2024-09-16 12:34:56] Sistema iniciado.\n[2024-09-16 12:35:12] Varredura de segurança completa.\n[2024-09-16 12:36:45] Conexão externa detectada.\n', 50);
+            break;
+        case 'backup':
+            simulateTyping('Criando backup...\nBackup concluído com sucesso. Arquivo: backup_2024-09-16.zip\n', 50);
+            break;
+        case 'network':
+            simulateTyping('Dispositivos conectados:\n\n1. 192.168.1.5 - Laptop\n2. 192.168.1.6 - Impressora\n3. 192.168.1.7 - Smartphone\n', 50);
+            break;
+        case 'update':
+            simulateTyping('Verificando atualizações...\nAtualizações encontradas.\nAplicando atualizações...\nAtualizações aplicadas com sucesso.\n', 50);
+            break;
+        case 'challenge':
+            simulateTyping('Desafio de segurança: Resolva a equação para continuar.\n5 + 3 = ?\n', 50);
+            break;
+        case 'stats':
+            simulateTyping('Estatísticas do Sistema:\n\nUso de CPU: 30%\nUso de Memória: 60%\nEspaço em Disco: 50GB livre de 200GB\n', 50);
+            break;
+        case 'ls':
+            simulateTyping('Documentos\nImagens\nVídeos\nDownloads\n', 50);
+            break;
+        case 'troubleshoot':
+            simulateTyping('Resolução de problemas em andamento...\nVerificando conexão...\nConexão restabelecida com sucesso.\n', 50);
+            break;
+        case 'color':
+            if (args[0] === 'blue') {
+                document.body.style.color = 'blue';
+                printToOutput('Cor do texto alterada para azul.\n', 'success');
+            } else if (args[0] === 'red') {
+                document.body.style.color = 'red';
+                printToOutput('Cor do texto alterada para vermelho.\n', 'success');
+            } else {
+                printToOutput('Cor não reconhecida. Use "color blue" ou "color red".\n', 'error');
+            }
+            break;
         case 'help':
-            simulateTyping('Comandos disponíveis:\n- hack\n- status\n- scan\n- exploit\n- ipconfig\n- fix [problema]\n- help\n', 50);
+            simulateTyping('Comandos disponíveis:\n- hack\n- status\n- scan\n- exploit\n- ipconfig\n- fix [problema]\n- alerta\n- logs\n- backup\n- network\n- update\n- challenge\n- stats\n- ls\n- troubleshoot\n- color [cor]\n- help\n', 50);
             break;
         default:
             simulateTyping('Comando não reconhecido.\nDigite "help" para ver a lista de comandos.\n', 'error', () => {
