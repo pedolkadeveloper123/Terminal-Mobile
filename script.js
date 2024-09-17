@@ -37,9 +37,9 @@ function login() {
     if (username === validUsername && password === validPassword) {
         loginDiv.style.display = 'none';
         terminalDiv.style.display = 'block';
-        printToOutput('Login bem-sucedido.\nBem-vindo ao terminal de hacking.\n', 'success');
+        printToOutput('Login bem-sucedido.\nBem-vindo ao terminal, Sr Pedro H Developer.\n', 'success');
     } else {
-        loginErrorElement.textContent = 'Usuário ou senha inválidos. Tente novamente.';
+        loginErrorElement.textContent = 'Usuário ou senha inválidos. Mais uma tentativa.';
     }
 }
 
@@ -49,7 +49,7 @@ function handleCommand(command) {
 
     switch (cmd.toLowerCase()) {
         case 'hack':
-            simulateTyping('Iniciando o hackeamento...\nVerificando sistemas...\nExplorando vulnerabilidades...\nAcesso concedido.\n', 100);
+            simulateTyping('Iniciando o hackeamento...\nVerificando sistemas...\nExplorando vulnerabilidades...\nPorta aberta n 04.\n', 100);
             break;
         case 'status':
             simulateTyping('Status: Sistema seguro.\nNenhuma ameaça detectada.\n', 50);
