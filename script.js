@@ -4,8 +4,8 @@ const loginDiv = document.getElementById('login');
 const terminalDiv = document.getElementById('terminal');
 const loginErrorElement = document.getElementById('login-error');
 
-const validUsername = 'admin';
-const validPassword = 'password';
+const validUsername = 'pedro';
+const validPassword = '2803';
 
 const commandHistory = [];
 let historyIndex = -1;
